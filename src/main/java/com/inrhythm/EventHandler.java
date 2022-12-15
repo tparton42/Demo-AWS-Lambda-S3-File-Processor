@@ -20,6 +20,7 @@ import java.nio.charset.StandardCharsets;
  * Hello world!
  */
 public class EventHandler implements RequestHandler<S3Event, Boolean> {
+
 	// Define our AWS S3 Client, use default AWS Credentials
 	private static final AmazonS3 s3Client = AmazonS3Client.builder()
          .withCredentials(new DefaultAWSCredentialsProviderChain())
@@ -35,10 +36,10 @@ public class EventHandler implements RequestHandler<S3Event, Boolean> {
 			return false;
 		}
 
-		for (S3EventNotification.S3EventNotificationRecord record : input.getRecords()) {
+		for (S3EventNotification.S3EventNotificationRecord notificationRecord : input.getRecords()) {
 			// Get our the bucket name and object key
-			String bucketName = record.getS3().getBucket().getName();
-			String objectKey = record.getS3().getObject().getKey();
+			String bucketName = notificationRecord.getS3().getBucket().getName();
+			String objectKey = notificationRecord.getS3().getObject().getKey();
 
 			// Get the S3 Object
 			S3Object s3Object = s3Client.getObject(bucketName, objectKey);

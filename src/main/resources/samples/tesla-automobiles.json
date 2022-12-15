@@ -1,0 +1,10 @@
+{
+    "brand" : "Tesla",
+    "models" : [
+        {   "model" : "S", "modelYear" : 2012, "color": "Signature Red", "basePrice" : "75,000.00" },
+        {   "model" : "3 LR", "modelYear" : 2017, "color": "Blue", "basePrice" : "60,000.00" },
+        {   "model" : "X", "modelYear" : 2016,  "color": "Black", "basePrice" : "105,000.00" },
+        {   "model" : "Y LR", "modelYear" : 2020, "color": "Silver", "basePrice" : "66,000.00" },
+        {   "model" : "Semi", "modelYear" : 2022, "color": "White", "basePrice" : "150,000.00" }
+    ]
+}
