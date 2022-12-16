@@ -1,0 +1,5 @@
+[
+    { "id" : 310001, "brand": "Tesla", "model": "3", "modelYear": "2017", "color": "Red", "basePrice": "49,000.00" },
+    { "id" : 310002, "brand": "Tesla", "model": "3 LR", "modelYear": "2017", "color": "White", "basePrice": "60,000.00"  },
+    { "id" : 310001, "brand": "Tesla", "model": "3 P", "modelYear": "2017", "color": "Blue", "basePrice": "67,000.00"  }
+]
