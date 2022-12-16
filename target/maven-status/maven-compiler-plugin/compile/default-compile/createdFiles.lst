@@ -1,0 +1,13 @@
+com/inrhythm/dto/aws/AwsSnsWrapper.class
+com/inrhythm/dto/aws/AwsS3Object.class
+com/inrhythm/dto/aws/AwsS3Bucket.class
+com/inrhythm/SaveAutomobilesHandler.class
+com/inrhythm/dto/AutomobilesDTO.class
+com/inrhythm/dto/aws/AwsS3Bucket$OwnerIdentity.class
+com/inrhythm/dto/VehicleDetails.class
+com/inrhythm/SaveAutomobileHandler.class
+com/inrhythm/dto/aws/AwsS3Wrapper.class
+com/inrhythm/dto/aws/AwsSnsRecord.class
+com/inrhythm/dto/AutomobileDTO.class
+com/inrhythm/EventHandler.class
+com/inrhythm/HelloWorld.class

@@ -1,0 +1,8 @@
+{
+  "brand": "Tesla",
+  "id" : 1001,
+  "model": "Roadster",
+  "modelYear": 2008,
+  "color": "Red",
+  "basePrice": "125,000.00"
+}

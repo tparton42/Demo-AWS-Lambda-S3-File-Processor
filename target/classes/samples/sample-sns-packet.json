@@ -1,0 +1,38 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.1",
+      "eventSource": "aws:s3",
+      "awsRegion": "us-east-2",
+      "eventTime": "2022-12-16T06:48:35.270Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "AWS:AIDAWL66NYX2URTLI6TSN"
+      },
+      "requestParameters": {
+        "sourceIPAddress": "104.60.218.191"
+      },
+      "responseElements": {
+        "x-amz-request-id": "NQF9E678ZQB9D42C",
+        "x-amz-id-2": "G/csR0ftZXpjwFJ3A4FPJSon6mHzF6leVrHi30ao069i0vhblxU1GeiKacii/DeDdkYNyB82Sw6JKSXNiYkQi1uYMuf8JnTh"
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "JSON File Received",
+        "bucket": {
+          "name": "tparton-sandbox",
+          "ownerIdentity": {
+            "principalId": "AI2ENWNNXSGU4"
+          },
+          "arn": "arn:aws:s3:::tparton-sandbox"
+        },
+        "object": {
+          "key": "tesla-model3-v2.json",
+          "size": 366,
+          "eTag": "dc71b5e459050192d782a60c583f7e3f",
+          "sequencer": "00639C14C33B7D8FEA"
+        }
+      }
+    }
+  ]
+}
