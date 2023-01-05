@@ -8,6 +8,7 @@ com/inrhythm/dto/VehicleDetails.class
 com/inrhythm/SaveAutomobileHandler.class
 com/inrhythm/dto/aws/AwsS3Wrapper.class
 com/inrhythm/dto/aws/AwsSnsRecord.class
+com/inrhythm/PropertyLoader.class
 com/inrhythm/dto/AutomobileDTO.class
 com/inrhythm/EventHandler.class
 com/inrhythm/HelloWorld.class

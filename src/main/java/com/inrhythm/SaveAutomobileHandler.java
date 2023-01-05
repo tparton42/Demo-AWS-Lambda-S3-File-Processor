@@ -7,28 +7,37 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ConditionalCheckFailedException;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.inrhythm.dto.AutomobileDTO;
+import com.inrhythm.lambda.layers.AbstractLambdaDTOWrapper;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * This handler should write a SINGLE Automobile to a DynamoDb table
  *
  * Inspired by tutorial at Baeldung.com see: https://www.baeldung.com/aws-lambda-dynamodb-java
  */
-public class SaveAutomobileHandler implements RequestHandler<AutomobileDTO, Boolean> {
+public class SaveAutomobileHandler extends AbstractLambdaDTOWrapper<AutomobileDTO, Boolean> {
 	private AmazonDynamoDB dynamoDB;
 
 	private LambdaLogger logger;
-	private static String DYNAMODB_TABLE_NAME = "Automobiles";
-	private static Regions REGION = Regions.US_EAST_2;
+	private String dynamodbTableName = "Automobiles";
+
+	private Properties appProperties;
 
 
 	@Override
-	public Boolean handleRequest(AutomobileDTO automobile, Context context) {
+	public Boolean handleRequest(Object objIn, Context context) {
 		this.logger = context.getLogger();
+		init();
+
+		// Convert object in to AutomobileDTO
+		ObjectMapper objectMapper = new ObjectMapper();
+		AutomobileDTO automobile = objectMapper.convertValue(objIn, AutomobileDTO.class);
+
 
 		if (automobile == null) {
 			// No record found! Abort!
@@ -36,10 +45,9 @@ public class SaveAutomobileHandler implements RequestHandler<AutomobileDTO, Bool
 			return false;
 		}
 
-		this.initDynamoDbClient();
 		try {
 			logger.log("Attempting to persist an Automobile.");
-			persistData(automobile);
+			persistAutomobile(automobile);
 		} catch (ConditionalCheckFailedException e) {
 			logger.log("Failed to persist an Automobile");
 			return false;
@@ -49,13 +57,27 @@ public class SaveAutomobileHandler implements RequestHandler<AutomobileDTO, Bool
 		return true;
 	}
 
-	private void initDynamoDbClient() {
+	private void init() {
+		// Load Application Properties
+		this.appProperties = new PropertyLoader(logger).getAppProperties();
+		logger.log("AppName: " + appProperties.getProperty("app.name"));
+
+		String regionName = appProperties.getProperty("app.region", "us-east-2");
+		logger.log("regionName: " + regionName);
+
+		this.dynamodbTableName = appProperties.getProperty("db.tbl.automobiles", "Automobiles");
+
+		initDynamoDbClient(regionName);
+	}
+
+	private void initDynamoDbClient(String regionName) {
+		Regions targetRegion = Regions.fromName(regionName);
 		this.dynamoDB = AmazonDynamoDBClientBuilder.standard()
-				.withRegion(REGION)
+				.withRegion(targetRegion)
 				.build();
 	}
 
-	private void persistData(AutomobileDTO automobile) throws ConditionalCheckFailedException {
+	private void persistAutomobile(AutomobileDTO automobile) throws ConditionalCheckFailedException {
 		Map<String, AttributeValue> attributesMap = new HashMap<>();
 
 		attributesMap.put("id", new AttributeValue(String.valueOf(automobile.getId())));
@@ -65,6 +87,6 @@ public class SaveAutomobileHandler implements RequestHandler<AutomobileDTO, Bool
 		attributesMap.put("color", new AttributeValue(automobile.getColor()));
 		attributesMap.put("basePrice", new AttributeValue(automobile.getBasePrice()));
 
-		dynamoDB.putItem(DYNAMODB_TABLE_NAME, attributesMap);
+		dynamoDB.putItem(dynamodbTableName, attributesMap);
 	}
 }

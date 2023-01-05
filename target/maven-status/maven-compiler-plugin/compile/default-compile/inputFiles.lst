@@ -1,12 +1,13 @@
+/home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/AutomobilesDTO.java
+/home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/aws/AwsS3Wrapper.java
+/home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/EventHandler.java
 /home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/AutomobileDTO.java
 /home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/VehicleDetails.java
 /home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/SaveAutomobilesHandler.java
 /home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/aws/AwsS3Object.java
 /home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/aws/AwsSnsWrapper.java
-/home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/AutomobilesDTO.java
+/home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/PropertyLoader.java
 /home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/HelloWorld.java
 /home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/aws/AwsS3Bucket.java
 /home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/aws/AwsSnsRecord.java
-/home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/dto/aws/AwsS3Wrapper.java
-/home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/EventHandler.java
 /home/ted/IdeaProjects/LambdaS3Processor/src/main/java/com/inrhythm/SaveAutomobileHandler.java

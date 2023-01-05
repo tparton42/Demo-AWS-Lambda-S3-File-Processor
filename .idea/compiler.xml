@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="LambdaS3Processor" />
+        <module name="lambda-demo-lib" />
       </profile>
     </annotationProcessing>
   </component>
